@@ -9,19 +9,18 @@ public class SCR_Flecha_rebote : SCR_Flecha
         Inicializar();
     }
 
-    protected override void EjecutarEfectoColision()
+    protected override void EjecutarEfectoColision(Vector3 _n)
     {
-        print("Shazam");
+        //print("Shazam");
     }
 
     protected override void HacerDanio()
     {
-        print("200 de daño jaja");
+        //print("200 de daño jaja");
     }
 
     protected override void Inicializar()
     {
-        print("Soy la riata");
+        //print("Soy la riata");
     }
-
 }

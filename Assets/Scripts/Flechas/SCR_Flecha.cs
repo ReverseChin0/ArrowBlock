@@ -12,12 +12,12 @@ public abstract class SCR_Flecha : MonoBehaviour
         HacerDanio();
     }
 
-    public void Colision()
+    public void Colision(Vector3 _normal)
     {
-        EjecutarEfectoColision();
+        EjecutarEfectoColision(_normal);
     }
 
     protected abstract void HacerDanio();
-    protected abstract void EjecutarEfectoColision();
+    protected abstract void EjecutarEfectoColision(Vector3 _normal);
     protected abstract void Inicializar();
 }

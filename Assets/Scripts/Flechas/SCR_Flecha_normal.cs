@@ -4,24 +4,37 @@ using UnityEngine;
 
 public class SCR_Flecha_normal : SCR_Flecha
 {
+    public float speed = 1.0f;
+    float torque;
+    Rigidbody rb;
+    Collider col;
+    Vector3 velocity;
+
     private void Start()
     {
+        velocity = transform.forward * speed;
+        torque = speed * 2;
+        rb = GetComponent<Rigidbody>();
+        col = GetComponent<Collider>();
         Inicializar();
     }
 
-    protected override void EjecutarEfectoColision()
+    protected override void EjecutarEfectoColision(Vector3 _n)
     {
-        print("PiUM");
+        rb.velocity = -_n * speed;
+        rb.AddTorque(0.0f,100.0f,0.0f,ForceMode.VelocityChange);
+        col.enabled = false;
     }
 
     protected override void HacerDanio()
     {
-        print("10 de daño");
+
     }
 
     protected override void Inicializar()
     {
-        print("Soy la flecha normal");
+        col.enabled = true;
+        rb.velocity = velocity;
     }
 
 }
