@@ -21,7 +21,10 @@ public class SCR_Flecha_normal : SCR_Flecha
 
     protected override void EjecutarEfectoColision(Vector3 _n)
     {
-        rb.velocity = -_n * speed;
+        Vector2 circle = Random.insideUnitCircle * 0.8f;
+        _n = (-_n * 2) + new Vector3(circle.x, 0, circle.y);
+        _n.Normalize();
+        rb.velocity = _n * speed;
         rb.AddTorque(0.0f,100.0f,0.0f,ForceMode.VelocityChange);
         col.enabled = false;
     }
