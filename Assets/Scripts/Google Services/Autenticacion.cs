@@ -7,8 +7,8 @@ using UnityEngine.SocialPlatforms;
 
 public class Autenticacion : MonoBehaviour
 {
-    public PlayGamesPlatform platform;
-    // Start is called before the first frame update
+    /*public PlayGamesPlatform platform;
+
     void Start()
     {
         if(platform == null)
@@ -37,5 +37,5 @@ public class Autenticacion : MonoBehaviour
     void Update()
     {
         
-    }
+    }*/
 }
