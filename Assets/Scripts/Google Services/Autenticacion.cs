@@ -7,7 +7,7 @@ using UnityEngine.SocialPlatforms;
 
 public class Autenticacion : MonoBehaviour
 {
-    /*public PlayGamesPlatform platform;
+    public PlayGamesPlatform platform;
 
     void Start()
     {
@@ -37,5 +37,5 @@ public class Autenticacion : MonoBehaviour
     void Update()
     {
         
-    }*/
+    }
 }
