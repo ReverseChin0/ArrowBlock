@@ -3,8 +3,9 @@ guid: eb8d7412bcd3f5a48b67f524b128032a
 ShaderImporter:
   externalObjects: {}
   defaultTextures:
+  - _MainTex: {fileID: 2800000, guid: 66321cc856b03e245ac41ed8a53e0ecc, type: 3}
   - _Normal: {fileID: 2800000, guid: 8eb0710a9ac73a7469e36623cdb0e47f, type: 3}
-  - _Mask: {fileID: 2800000, guid: 28c7aad1372ff114b90d330f8a2dd938, type: 3}
+  - _TansitionMask: {fileID: 2800000, guid: 28c7aad1372ff114b90d330f8a2dd938, type: 3}
   nonModifiableTextures: []
   userData: 
   assetBundleName: 
