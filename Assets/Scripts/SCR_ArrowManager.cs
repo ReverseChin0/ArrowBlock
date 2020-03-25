@@ -32,5 +32,9 @@ public class SCR_ArrowManager : MonoBehaviour
         
         actual.transform.position = pos;
         actual.transform.rotation = orientation;
+
+        actual.Inicio();
     }
+
+
 }
