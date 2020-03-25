@@ -21,12 +21,7 @@ public class SCR_Flecha_normal : SCR_Flecha
 
     protected override void EjecutarEfectoColision(Vector3 _n)
     {
-        Vector2 circle = Random.insideUnitCircle * 0.8f;
-        _n = (-_n * 2) + new Vector3(circle.x, 0, circle.y);
-        _n.Normalize();
-        rb.velocity = _n * speed;
-        rb.AddTorque(0.0f,100.0f,0.0f,ForceMode.VelocityChange);
-        col.enabled = false;
+        Disappear(_n);
     }
 
     protected override void HacerDanio()
@@ -40,4 +35,12 @@ public class SCR_Flecha_normal : SCR_Flecha
         rb.velocity = velocity;
     }
 
+    void Disappear(Vector3 _n) {
+        Vector2 circle = Random.insideUnitCircle * 0.8f;
+        _n = (-_n * 2) + new Vector3(circle.x, 0, circle.y);
+        _n.Normalize();
+        rb.velocity = _n * speed;
+        rb.AddTorque(0.0f, 100.0f, 0.0f, ForceMode.VelocityChange);
+        col.enabled = false;
+    }
 }
