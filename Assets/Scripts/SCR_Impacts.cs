@@ -11,10 +11,7 @@ public class SCR_Impacts : MonoBehaviour
     float duracion = 0.4f;
     float valorT = 0;
     float delta;
-    //TEST==============
-    Vector3 expnormal=Vector3.zero;
-    Vector2 circle;
-    //TEST==============
+  
     private void OnCollisionEnter(Collision collision)
     {
         
@@ -22,21 +19,11 @@ public class SCR_Impacts : MonoBehaviour
         ultimaflecha.Ataque();
         scr_gamemanger.PutMoreValueToScore(ultimaflecha.scoreExtra);
         Vector3 normal = collision.contacts[0].normal;
-        //TEST=======================
-        expnormal = -normal;
-        circle = Random.insideUnitCircle*0.8f;
-        Debug.Log(expnormal);
-        
-        Debug.DrawRay(transform.position, expnormal + new Vector3(circle.x, 0, circle.y), Color.red,2.0f);
-        //TEST====================
+
         ultimaflecha.Colision(normal);
         StartCoroutine(efecto());
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(expnormal*2,0.8f);
-    }
 
     public IEnumerator efecto()
     {
