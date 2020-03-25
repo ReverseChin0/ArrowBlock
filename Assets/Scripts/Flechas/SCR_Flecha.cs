@@ -2,6 +2,8 @@
 
 public abstract class SCR_Flecha : MonoBehaviour
 {
+    public int scoreExtra = 100;
+
     public void Inicio()
     {
         Inicializar();

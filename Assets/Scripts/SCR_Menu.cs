@@ -18,11 +18,20 @@ public class SCR_Menu : MonoBehaviour
 
     MaterialPropertyBlock miblock;
 
+    Gamemanager scr_gamemanager;
+
+
+    private void Start()
+    {
+        scr_gamemanager = GameObject.FindGameObjectWithTag("Gamemanager").GetComponent<Gamemanager>();
+    }
+
     public void IniciarJuego()
     {
         anim.SetTrigger("Start");
         StartCoroutine(fadeoutsilla(0.5f));
         StartCoroutine(LerpToPos(target,1.0f));
+        scr_gamemanager.StartGame();
     }
 
     public void ToggleGo(GameObject go)

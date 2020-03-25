@@ -6,6 +6,7 @@ public class SCR_Impacts : MonoBehaviour
 {
     public SCR_Flecha ultimaflecha;
     public MeshRenderer escudo;
+    public Gamemanager scr_gamemanger;
     [SerializeField]
     float duracion = 0.4f;
     float valorT = 0;
@@ -16,8 +17,10 @@ public class SCR_Impacts : MonoBehaviour
     //TEST==============
     private void OnCollisionEnter(Collision collision)
     {
+        
         ultimaflecha = collision.collider.GetComponent<SCR_Flecha>();
         ultimaflecha.Ataque();
+        scr_gamemanger.PutMoreValueToScore(ultimaflecha.scoreExtra);
         Vector3 normal = collision.contacts[0].normal;
         //TEST=======================
         expnormal = -normal;
