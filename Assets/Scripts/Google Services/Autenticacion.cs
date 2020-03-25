@@ -33,9 +33,4 @@ public class Autenticacion : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

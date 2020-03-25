@@ -8,11 +8,11 @@ public class SCR_shieldrotation : MonoBehaviour
     Quaternion targetRotation;
 
     [SerializeField]
-    Collider[] escudopos;
-#pragma warning disable 0649
+    Collider[] escudoColl;
+
     [SerializeField,Range(2.0f,30.0f)]
     float turnSpeed = 1;
-#pragma warning restore 0649
+
 
     void Start()
     {
@@ -25,18 +25,25 @@ public class SCR_shieldrotation : MonoBehaviour
 
         if (arriba){
             targetRotation = Quaternion.Euler(0, 0, 0);
-            //escudopos[0].enabled = true;
+            ActivadDesactivarColli(0);
         }
 
         if (derecha){
             targetRotation = Quaternion.Euler(0, 90.0f, 0);
+            ActivadDesactivarColli(1);
         }
 
-        if (abajo)
+        if (abajo) {
             targetRotation = Quaternion.Euler(0, 180.0f, 0);
+            ActivadDesactivarColli(2);
+        }
+            
 
-        if (izquierda)
+        if (izquierda) {
             targetRotation = Quaternion.Euler(0, 270, 0);
+            ActivadDesactivarColli(3);
+        }
+            
 
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
     }
@@ -51,9 +58,13 @@ public class SCR_shieldrotation : MonoBehaviour
 
     void ActivadDesactivarColli(int _index)
     {
-        for (int i = 0; i < escudopos.Length; i++)
+        for (int i = 0; i < escudoColl.Length; i++)
         {
-
+            
+            if (i == _index)
+                escudoColl[i].enabled = true;
+            else
+                escudoColl[i].enabled = false;
         }
     }
 }
