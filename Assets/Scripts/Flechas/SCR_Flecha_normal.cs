@@ -12,8 +12,6 @@ public class SCR_Flecha_normal : SCR_Flecha
 
     private void Start()
     {
-        velocity = transform.forward * speed;
-        torque = speed * 2;
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
         Inicializar();
@@ -32,6 +30,8 @@ public class SCR_Flecha_normal : SCR_Flecha
     protected override void Inicializar()
     {
         col.enabled = true;
+        velocity = transform.forward * speed;
+        torque = speed * 2;
         rb.velocity = velocity;
     }
 
