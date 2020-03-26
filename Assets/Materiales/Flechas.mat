@@ -33,7 +33,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _ShadowIntensity: 0.15
-    - _grosorTransi: 0.0675
+    - _grosorTransi: 0
     - _sombras: 0.2173864
     - _transicion: 0
     m_Colors:

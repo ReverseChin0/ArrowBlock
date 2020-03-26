@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,7 @@ public class Gamemanager : MonoBehaviour
 
     GameObject player;
 
-    public Text counterText;
+    public TextMeshProUGUI counterText;
 
     // Start is called before the first frame update
     void Start()

@@ -6,12 +6,13 @@ public class SCR_ArrowManager : MonoBehaviour
 {
     [SerializeField]
     SCR_Flecha arrow=default, bouncearrow=default;
-    Queue<SCR_Flecha_normal> flechas;
-    Queue<SCR_Flecha_rebote> rebotadoras;
+    Queue<SCR_Flecha_normal> flechas = new Queue<SCR_Flecha_normal>();
+    Queue<SCR_Flecha_rebote> rebotadoras = new Queue<SCR_Flecha_rebote>();
+
+    public Transform[] posicionesdeSpawn;
 
     [SerializeField]
-    int MaxArrow = 10;
-    int MaxBounce = 10;
+    int MaxArrow = 10,MaxBounce = 10;
 
     void Start() {
         int i;
@@ -19,7 +20,7 @@ public class SCR_ArrowManager : MonoBehaviour
             flechas.Enqueue((SCR_Flecha_normal)Instantiate(arrow, new Vector3(0.0f, 100.0f, 0.0f), Quaternion.identity));
         }
         for (i = 0; i < MaxBounce; i++) {
-            rebotadoras.Enqueue((SCR_Flecha_rebote)Instantiate(arrow, new Vector3(0.0f, 100.0f, 0.0f), Quaternion.identity));
+            rebotadoras.Enqueue((SCR_Flecha_rebote)Instantiate(bouncearrow, new Vector3(0.0f, 100.0f, 0.0f), Quaternion.identity));
         }
     }
 
@@ -36,5 +37,7 @@ public class SCR_ArrowManager : MonoBehaviour
         actual.Inicio();
     }
 
-
+    void Update() {
+        
+    }
 }

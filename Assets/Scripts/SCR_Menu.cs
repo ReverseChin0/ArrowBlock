@@ -23,7 +23,8 @@ public class SCR_Menu : MonoBehaviour
 
     private void Start()
     {
-        scr_gamemanager = GameObject.FindGameObjectWithTag("Gamemanager").GetComponent<Gamemanager>();
+        //scr_gamemanager = GameObject.FindGameObjectWithTag("Gamemanager").GetComponent<Gamemanager>();
+        scr_gamemanager = FindObjectOfType<Gamemanager>();
     }
 
     public void IniciarJuego()

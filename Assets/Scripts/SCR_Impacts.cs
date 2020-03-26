@@ -6,7 +6,8 @@ public class SCR_Impacts : MonoBehaviour
 {
     public SCR_Flecha ultimaflecha;
     public MeshRenderer escudo;
-    public Gamemanager scr_gamemanger;
+    [SerializeField]
+    Gamemanager scr_gamemanger = default;
     [SerializeField]
     float duracion = 0.4f;
     float valorT = 0;
@@ -14,7 +15,6 @@ public class SCR_Impacts : MonoBehaviour
   
     private void OnCollisionEnter(Collision collision)
     {
-        
         ultimaflecha = collision.collider.GetComponent<SCR_Flecha>();
         ultimaflecha.Ataque();
         scr_gamemanger.PutMoreValueToScore(ultimaflecha.scoreExtra);
@@ -27,7 +27,7 @@ public class SCR_Impacts : MonoBehaviour
 
     public IEnumerator efecto()
     {
-        float nduracion = duracion * 0.5f;
+        float nduracion = duracion * 0.2f;
         delta = 1 / nduracion;
         while (valorT < 1.0f) 
         {
@@ -39,6 +39,7 @@ public class SCR_Impacts : MonoBehaviour
             yield return null;
         }
         valorT = 0;
+        delta = 1 / duracion;
         while (valorT < 1.0f)
         {
             valorT += delta * Time.deltaTime;
