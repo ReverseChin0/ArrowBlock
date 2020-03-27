@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SCR_Flecha_rebote : SCR_Flecha
 {
+    public float speed = 1.0f;
     private void Start()
     {
         Inicializar();
