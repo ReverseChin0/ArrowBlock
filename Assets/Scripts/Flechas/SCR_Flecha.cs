@@ -2,7 +2,7 @@
 
 public abstract class SCR_Flecha : MonoBehaviour
 {
-    public int scoreExtra = 100;
+    public int scoreExtra = 10;
 
     public void Inicio()
     {

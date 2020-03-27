@@ -9,6 +9,8 @@ public class SCR_ArrowManager : MonoBehaviour
     Queue<SCR_Flecha_normal> flechas = new Queue<SCR_Flecha_normal>();
     Queue<SCR_Flecha_rebote> rebotadoras = new Queue<SCR_Flecha_rebote>();
 
+    Gamemanager scr_gamemanager;
+
     public Transform[] posicionesdeSpawn;
     int npos;
 
@@ -20,6 +22,7 @@ public class SCR_ArrowManager : MonoBehaviour
     float timeSinceLastSpawn, timeBetweenSpawns;
 
     void Start() {
+        scr_gamemanager = FindObjectOfType<Gamemanager>();
         int i;
         npos = posicionesdeSpawn.Length;
         timeBetweenSpawns = InitialSpawnRate;
@@ -52,22 +55,31 @@ public class SCR_ArrowManager : MonoBehaviour
     }
 
     void FixedUpdate() {
-        timeSinceLastSpawn += Time.deltaTime;
-        if (timeSinceLastSpawn >= timeBetweenSpawns) {
-            timeSinceLastSpawn -= timeBetweenSpawns;
-            timeBetweenSpawns *= 0.99f;
+        if (scr_gamemanager.IsGameable())
+        {
+            timeSinceLastSpawn += Time.deltaTime;
+            if (timeSinceLastSpawn >= timeBetweenSpawns)
+            {
+                timeSinceLastSpawn -= timeBetweenSpawns;
+                timeBetweenSpawns *= 0.99f;
 
-            if (timeBetweenSpawns < maxspawnRate)
-                timeBetweenSpawns = maxspawnRate;
-          
-            int proba = Random.Range(0, 100);
-            int p = Random.Range(0, npos);
-            if (proba < 90) {
-                SpawnArrow(0, posicionesdeSpawn[p].position, posicionesdeSpawn[p].rotation);
-            } else {
-                SpawnArrow(1, posicionesdeSpawn[p].position, posicionesdeSpawn[p].rotation);
+                if (timeBetweenSpawns < maxspawnRate)
+                    timeBetweenSpawns = maxspawnRate;
+
+                int proba = Random.Range(0, 100);
+                int p = Random.Range(0, npos);
+                if (proba < 90)
+                {
+                    SpawnArrow(0, posicionesdeSpawn[p].position, posicionesdeSpawn[p].rotation);
+                }
+                else
+                {
+                    SpawnArrow(1, posicionesdeSpawn[p].position, posicionesdeSpawn[p].rotation);
+                }
             }
+
         }
+        
     }
 
 }

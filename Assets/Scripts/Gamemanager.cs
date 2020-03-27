@@ -7,18 +7,23 @@ using UnityEngine.UI;
 public class Gamemanager : MonoBehaviour
 {
     
-    float counter;
+    public float counter = 0;
     public bool startGame = false;
 
-    GameObject player;
+    public GameObject player,gameCanvas, pauseCanvas, restartCanvas;
 
     public TextMeshProUGUI counterText;
+
+    public SCR_HitBoxPepsiman hitbox;
 
     // Start is called before the first frame update
     void Start()
     {
-        //player = GameObject.FindGameObjectWithTag("Player");
-        counter = 100;
+        player = GameObject.FindGameObjectWithTag("Player");
+        //counter = 100;
+        gameCanvas.SetActive(false);
+        pauseCanvas.SetActive(false);
+        restartCanvas.SetActive(false);
         counterText.text = counter.ToString();
     }
 
@@ -35,11 +40,48 @@ public class Gamemanager : MonoBehaviour
 
     public void StartGame()
     {
-        startGame = true;
+        startGame = !startGame;
+        gameCanvas.SetActive(true);
+        
     }
 
     public void PutMoreValueToScore(int _value)
     {
         counter += _value;
+    }
+
+    public bool IsGameable()
+    {
+        return startGame;
+    }
+
+    public void PauseButton()
+    {
+        Time.timeScale = 0;
+        pauseCanvas.SetActive(true);
+
+    }
+
+    public void ContinueButtonPause()
+    {
+        Time.timeScale = 1;
+        pauseCanvas.SetActive(false);
+    }
+
+    public void RestartButton()
+    {
+        counter = 0;
+        startGame = true;
+        restartCanvas.SetActive(false);
+        player.GetComponent<Animator>().SetBool("DieNow", false);
+        hitbox.ActiveArrow();
+    }
+
+    public void ContinueButton()
+    {
+        startGame = true;
+        restartCanvas.SetActive(true);
+        player.GetComponent<Animator>().SetBool("DieNow", false);
+        hitbox.ActiveArrow();
     }
 }

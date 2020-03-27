@@ -9,7 +9,7 @@ public class SCR_Menu : MonoBehaviour
 
     [SerializeField]
     float duracion = 0.5f, windUp=0.5f, duracionLerp = 1.0f;
-
+    
     [SerializeField]
     Animator anim = default;
 
@@ -20,6 +20,7 @@ public class SCR_Menu : MonoBehaviour
 
     Gamemanager scr_gamemanager;
 
+    
 
     private void Start()
     {
