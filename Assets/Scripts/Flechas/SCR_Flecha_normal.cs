@@ -10,6 +10,9 @@ public class SCR_Flecha_normal : SCR_Flecha
     Collider col;
     Vector3 velocity;
 
+    [SerializeField]
+    TrailRenderer mitrail=default;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -33,6 +36,7 @@ public class SCR_Flecha_normal : SCR_Flecha
         velocity = transform.forward * speed;
         torque = speed * 2;
         rb.velocity = velocity;
+        mitrail.enabled = true;
     }
 
     void Disappear(Vector3 _n) {
@@ -42,5 +46,6 @@ public class SCR_Flecha_normal : SCR_Flecha
         rb.velocity = _n * speed;
         rb.AddTorque(0.0f, 100.0f, 0.0f, ForceMode.VelocityChange);
         col.enabled = false;
+        mitrail.enabled = false;
     }
 }

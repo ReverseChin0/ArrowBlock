@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4148630141111941070}
   - component: {fileID: 4148630141111941071}
   - component: {fileID: 1429968516982139282}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Flecha normal
   m_TagString: Flecha
   m_Icon: {fileID: 0}
@@ -78,6 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreExtra: 50
   speed: 5
+  mitrail: {fileID: 3999120632820458915}
 --- !u!1 &7073348693377382293
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9160978506213090760}
   - component: {fileID: 3999120632820458915}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,6 +293,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: pijl
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 121b2da651063f0458c29e7f409858e2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 121b2da651063f0458c29e7f409858e2, type: 3}

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SCR_Flecha_rebote : SCR_Flecha
 {
+    [SerializeField]
+    TrailRenderer mitrail = default;
+
     public float speed = 1.0f;
     private void Start()
     {

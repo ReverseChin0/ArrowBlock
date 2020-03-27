@@ -74,7 +74,7 @@ public class SCR_ArrowManager : MonoBehaviour
                 }
                 else
                 {
-                    SpawnArrow(1, posicionesdeSpawn[p].position, posicionesdeSpawn[p].rotation);
+                    SpawnArrow(0, posicionesdeSpawn[p].position, posicionesdeSpawn[p].rotation);
                 }
             }
 
@@ -82,4 +82,19 @@ public class SCR_ArrowManager : MonoBehaviour
         
     }
 
+    public void ResetArrows() {
+        int count = flechas.Count;
+        for (int i = 0; i < count; i++) {
+            SCR_Flecha_normal fcha =flechas.Dequeue();
+            fcha.transform.position = new Vector3(0.0f, 100.0f, 0.0f);
+            flechas.Enqueue(fcha);
+        }
+
+        count = rebotadoras.Count;
+        for (int i = 0; i < count; i++) {
+            SCR_Flecha_rebote fcha = rebotadoras.Dequeue();
+            fcha.transform.position = new Vector3(0.0f, 100.0f, 0.0f);
+            rebotadoras.Enqueue(fcha);
+        }
+    }
 }

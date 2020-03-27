@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6018468428251553411}
   - component: {fileID: 8723491354110637323}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 3047426116743781982}
   - component: {fileID: 3047426116743781983}
   - component: {fileID: 8064530530580497625}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Flecha rebote
   m_TagString: Flecha
   m_Icon: {fileID: 0}
@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreExtra: 100
+  mitrail: {fileID: 8723491354110637323}
   speed: 1
 --- !u!1001 &7218854061656405709
 PrefabInstance:
@@ -292,6 +293,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: pijl
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 121b2da651063f0458c29e7f409858e2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 121b2da651063f0458c29e7f409858e2, type: 3}

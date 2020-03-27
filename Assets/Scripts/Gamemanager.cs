@@ -16,6 +16,11 @@ public class Gamemanager : MonoBehaviour
 
     public SCR_HitBoxPepsiman hitbox;
 
+    SCR_ArrowManager arrman;
+
+    [SerializeField]
+    SCR_shieldrotation rotator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +30,7 @@ public class Gamemanager : MonoBehaviour
         pauseCanvas.SetActive(false);
         restartCanvas.SetActive(false);
         counterText.text = counter.ToString();
+        arrman =GetComponent<SCR_ArrowManager>();
     }
 
     // Update is called once per frame
@@ -68,17 +74,17 @@ public class Gamemanager : MonoBehaviour
         pauseCanvas.SetActive(false);
     }
 
-    public void RestartButton()
-    {
+    public void RestartButton(){
         counter = 0;
         startGame = true;
         restartCanvas.SetActive(false);
         player.GetComponent<Animator>().SetBool("DieNow", false);
         hitbox.ActiveArrow();
+        arrman.ResetArrows();
+        rotator.enabled = true;
     }
 
-    public void ContinueButton()
-    {
+    public void ContinueButton(){
         startGame = true;
         restartCanvas.SetActive(true);
         player.GetComponent<Animator>().SetBool("DieNow", false);

@@ -10,6 +10,8 @@ public class SCR_Impacts : MonoBehaviour
     Gamemanager scr_gamemanger = default;
     [SerializeField]
     float duracion = 0.4f;
+    [SerializeField]
+    Animator an;
     float valorT = 0;
     float delta;
   
@@ -27,6 +29,7 @@ public class SCR_Impacts : MonoBehaviour
 
     public IEnumerator efecto()
     {
+        an.SetTrigger("hit");
         float nduracion = duracion * 0.2f;
         delta = 1 / nduracion;
         while (valorT < 1.0f) 

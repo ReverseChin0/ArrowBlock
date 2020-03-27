@@ -8,6 +8,9 @@ public class SCR_HitBoxPepsiman : MonoBehaviour
     Gamemanager scr_gamemanager;
     GameObject[] flechas;
 
+    [SerializeField]
+    SCR_shieldrotation stop;
+
     private void Start()
     {
         //scr_gamemanager = GameObject.FindGameObjectWithTag("Gamemanager").GetComponent<Gamemanager>();
@@ -27,6 +30,7 @@ public class SCR_HitBoxPepsiman : MonoBehaviour
             anim.SetBool("DieNow", true);
             scr_gamemanager.restartCanvas.SetActive(true);
             scr_gamemanager.StartGame();
+            stop.enabled = false;
             
             flechas = GameObject.FindGameObjectsWithTag("Flecha");
             for(int i = 0; i < flechas.Length; i++)
