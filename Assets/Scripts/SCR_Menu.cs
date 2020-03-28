@@ -20,24 +20,45 @@ public class SCR_Menu : MonoBehaviour
 
     Gamemanager scr_gamemanager;
 
+    public GameObject panelCreditos, panelMenu;
+    public AudioSource musica;
     
 
     private void Start()
     {
         //scr_gamemanager = GameObject.FindGameObjectWithTag("Gamemanager").GetComponent<Gamemanager>();
         scr_gamemanager = FindObjectOfType<Gamemanager>();
+        scr_gamemanager.player.GetComponent<SCR_shieldrotation>().enabled = false;
     }
 
     public void IniciarJuego()
     {
         anim.SetTrigger("Start");
+        scr_gamemanager.player.GetComponent<SCR_shieldrotation>().enabled = true;
         StartCoroutine(fadeoutsilla(0.5f));
         StartCoroutine(LerpToPos(target,1.0f));
         scr_gamemanager.StartGame();
     }
 
+    public void Creditos()
+    {
+        anim.SetBool("Dance", true);
+        panelCreditos.SetActive(true);
+        panelMenu.SetActive(false);
+        musica.Play();
+    }
+
+    public void Back()
+    {
+        anim.SetBool("Dance", false);
+        panelCreditos.SetActive(false);
+        panelMenu.SetActive(true);
+        musica.Stop();
+    }
+
     public void ToggleGo(GameObject go)
     {
+
         go.SetActive(!go.activeSelf);
     }
 

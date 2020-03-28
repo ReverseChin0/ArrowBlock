@@ -18,6 +18,8 @@ public class Gamemanager : MonoBehaviour
 
     SCR_ArrowManager arrman;
 
+    AdManager admanager;
+
     [SerializeField]
     SCR_shieldrotation rotator;
 
@@ -31,6 +33,7 @@ public class Gamemanager : MonoBehaviour
         restartCanvas.SetActive(false);
         counterText.text = counter.ToString();
         arrman =GetComponent<SCR_ArrowManager>();
+        admanager = GetComponent<AdManager>();
     }
 
     // Update is called once per frame
@@ -85,9 +88,15 @@ public class Gamemanager : MonoBehaviour
     }
 
     public void ContinueButton(){
+#if UNITY_ANDROID
+        admanager.ShowRealAd();
+        admanager.ShowAd();
+#endif
         startGame = true;
-        restartCanvas.SetActive(true);
+        restartCanvas.SetActive(false);
         player.GetComponent<Animator>().SetBool("DieNow", false);
         hitbox.ActiveArrow();
+        arrman.ResetArrows();
+        rotator.enabled = true;
     }
 }

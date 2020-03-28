@@ -4,18 +4,7 @@ using UnityEngine;
 
 public class Leaderboard : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+  
     public void AbrirLeaderBoard()
     {
         UpdateLeaderBoardScore();
@@ -36,5 +25,10 @@ public class Leaderboard : MonoBehaviour
                    PlayerPrefs.SetInt("ScoreToUpdate", 0);
                }
            });
+    }
+
+    public void OpenLeaderBoarGame()
+    {
+        Social.ShowLeaderboardUI();
     }
 }

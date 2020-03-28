@@ -31,7 +31,10 @@ public class SCR_HitBoxPepsiman : MonoBehaviour
             scr_gamemanager.restartCanvas.SetActive(true);
             scr_gamemanager.StartGame();
             stop.enabled = false;
-            
+
+            PlayerPrefs.SetInt("ScoreToUpdate", Mathf.RoundToInt(scr_gamemanager.counter));
+
+
             flechas = GameObject.FindGameObjectsWithTag("Flecha");
             for(int i = 0; i < flechas.Length; i++)
             {
