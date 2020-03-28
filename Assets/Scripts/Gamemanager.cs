@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Gamemanager : MonoBehaviour
@@ -75,6 +76,10 @@ public class Gamemanager : MonoBehaviour
     {
         Time.timeScale = 1;
         pauseCanvas.SetActive(false);
+    }
+
+    public void BackToMainBtn() {
+        SceneManager.LoadScene(0);
     }
 
     public void RestartButton(){

@@ -45,7 +45,9 @@ public class SCR_Menu : MonoBehaviour
         anim.SetBool("Dance", true);
         panelCreditos.SetActive(true);
         panelMenu.SetActive(false);
+        SCR_SoundManager.sndinstance.StopMusic(1);
         musica.Play();
+        StartCoroutine(fadeoutsilla(0.0f));
     }
 
     public void Back()
@@ -53,7 +55,9 @@ public class SCR_Menu : MonoBehaviour
         anim.SetBool("Dance", false);
         panelCreditos.SetActive(false);
         panelMenu.SetActive(true);
+        SCR_SoundManager.sndinstance.ResumeMusic(1);
         musica.Stop();
+        StartCoroutine(fadeinsilla(0.0f));
     }
 
     public void ToggleGo(GameObject go)
@@ -100,5 +104,22 @@ public class SCR_Menu : MonoBehaviour
             yield return null;
         }
        
+    }
+
+    IEnumerator fadeinsilla(float _windUp) {
+        float delta = 1 / duracion;
+        float t = 0.0f;
+        yield return new WaitForSeconds(_windUp);
+        while (t < 1.0f) {
+            t += delta * Time.deltaTime;
+            if (t > 1.0f) {
+                t = 1.0f;
+            }
+            miblock = new MaterialPropertyBlock();
+            miblock.SetFloat("_transicion", t);
+            asiento.SetPropertyBlock(miblock);
+            yield return null;
+        }
+
     }
 }

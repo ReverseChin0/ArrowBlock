@@ -22,6 +22,7 @@ public class SCR_Impacts : MonoBehaviour
         scr_gamemanger.PutMoreValueToScore(ultimaflecha.scoreExtra);
         Vector3 normal = collision.contacts[0].normal;
 
+        SCR_SoundManager.sndinstance.PlaySound(SCR_SoundManager.Sonidos.impacto);
         ultimaflecha.Colision(normal);
         StartCoroutine(efecto());
     }
