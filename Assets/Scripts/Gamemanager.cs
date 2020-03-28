@@ -67,8 +67,12 @@ public class Gamemanager : MonoBehaviour
 
     public void PauseButton()
     {
-        Time.timeScale = 0;
-        pauseCanvas.SetActive(true);
+        if(startGame)
+        {
+            Time.timeScale = 0;
+            pauseCanvas.SetActive(true);
+        }
+       
 
     }
 
@@ -79,6 +83,11 @@ public class Gamemanager : MonoBehaviour
     }
 
     public void BackToMainBtn() {
+        PlayerPrefs.SetInt("ScoreToUpdate", Mathf.RoundToInt(counter));
+        Debug.Log("En 1: " + PlayerPrefs.GetInt("ScoreToUpdate", 1));
+        Debug.Log("En 0: "+PlayerPrefs.GetInt("ScoreToUpdate", 0));
+
+        this.GetComponent<Leaderboard>().UpdateLeaderBoardScore();
         SceneManager.LoadScene(0);
     }
 

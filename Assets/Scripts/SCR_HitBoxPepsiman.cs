@@ -30,9 +30,7 @@ public class SCR_HitBoxPepsiman : MonoBehaviour
             anim.SetBool("DieNow", true);
             scr_gamemanager.restartCanvas.SetActive(true);
             scr_gamemanager.StartGame();
-            stop.enabled = false;
-
-            PlayerPrefs.SetInt("ScoreToUpdate", Mathf.RoundToInt(scr_gamemanager.counter));
+            stop.enabled = false;         
 
 
             flechas = GameObject.FindGameObjectsWithTag("Flecha");
